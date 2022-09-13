@@ -4,11 +4,10 @@ dotenv.config();
 
 import { postgresDb } from "./commons/databases";
 import { router } from "./modules/router";
-import { ErrorCatcherMiddleware, loggerMiddleware } from "./commons/middlewares";
-import { graphqlMiddleware } from "./commons/middlewares/graphql.middleware";
+import { ErrorCatcherMiddleware, loggerMiddleware, graphqlMiddleware } from "./commons/middlewares";
 
 
-const app = express();
+export const app = express();
 postgresDb.sync().then((result) => {
     console.log('sync postgres success');
 }).catch(error => {
@@ -23,5 +22,3 @@ const port = process.env.PORT || 4000;
 export const server = app.listen(port, ()=> {
     console.log('application start at port', port);
 });
-
-export const appRun = app;

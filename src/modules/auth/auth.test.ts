@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { appRun, server } from '../..';
+import { app, server } from '../..';
 
 describe('test auth', () => {
   it('Auth login success', (done) => {
@@ -10,7 +10,7 @@ describe('test auth', () => {
             }
           }`
     };
-    request(appRun)
+    request(app)
       .post('/graphql')
       .send(loginData)
       .then((response) => {
@@ -30,7 +30,7 @@ describe('test auth', () => {
                 }
               }`
     };
-    request(appRun)
+    request(app)
       .post('/graphql')
       .send(loginData)
       .then((response) => {

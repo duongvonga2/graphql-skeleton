@@ -1,10 +1,10 @@
 import request from 'supertest';
-import { appRun, server } from '../..';
+import { app, server } from '../..';
 
 describe('test root path', () => {
   //@ts-ignore
   test('It should be response status code 200', (done) => {
-    request(appRun)
+    request(app)
       .get('/api/user/user/detail?username=user1')
       .then((response) => {
         const example = {
